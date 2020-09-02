@@ -11,10 +11,26 @@
 T = int(input())
 for t in range(T):
     N = int(input())
-    a = []
-    b = []
+    red = []
+    blue = []
     for i in range(N):
-        for j in range(len(b)):
-            print([i][j])
+        # 좌표 parsing
+        x1, y1, x2, y2, color = map(int,input().split())
+        for x in range(x1, x2+1):
+            for y in range(y1, y2+1):
+                if color == 1:
+                    red.append((x,y))
+                else:
+                    blue.append((x,y))
+        # 한 리스트에서 다른 리스트의 엘레멘트와 겹칠때 purple list에 추가하기
+        purple = []
+        for i in red:
+            if i in blue:
+                purple.append(i)
+    print("#{} {}".format(t+1, len(purple)))
+
+
+    
+
 
             
