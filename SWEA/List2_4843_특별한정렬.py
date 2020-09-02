@@ -13,6 +13,7 @@ for t in range(T):
     lst.sort(reverse = True)
     count = N
     result = []
+    # 카운트를 하나씩 줄이고 홀수, 짝수 될 때마다 리스트의 앞, 뒤에서 pop 하고 새 리스트에 append하기
     for i in range(N):
         count -=1
         if count % 2 == 0:
