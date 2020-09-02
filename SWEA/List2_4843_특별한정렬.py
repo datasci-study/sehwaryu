@@ -5,3 +5,22 @@
 # [출력]
 # 각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 특별히 정렬된 숫자를 10개까지 출력한다.
 
+T = int(input())
+for t in range(T):
+    N = int(input())
+    lst = list(map(int, input().split()))
+    # 먼저 리스트 정렬하기
+    lst.sort(reverse = True)
+    count = N
+    result = []
+    for i in range(N):
+        count -=1
+        if count % 2 == 0:
+            result.append(lst[-1])
+            lst.pop(-1)
+        else:
+            result.append(lst[0])
+            lst.pop(0)
+    
+    print("#{} ".format(t+1), end='')
+    print(*result)
