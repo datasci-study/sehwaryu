@@ -6,32 +6,28 @@
 # 각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, A, B, 0 중 하나를 출력한다.
 
 # 이진탐색 함수 만들기
-# p = 전체 쪽수, l = 첫째 쪽수 a = 찾아야하는 쪽수
-def binarySearch(p, l, a):
-    c = (l+p)/2
-    print(c)
-    # 이진탐색을 몇번 실시하는지 담는 변수
-    count = 0 
+# p = 전체 쪽수, l = 첫째 쪽수, a = 찾아야하는 쪽수, count = 이진탐색 실시 횟수
+def binarySearch(p, l, a, count):
+    c = int((l+p)/2)
     # a가 중간값보다 큰 경우 l = c
     if a > c:
-        count +=1
-        binarySearch(p, c, a)
+        binarySearch(p, c, a, count+1)
     # a가 중간값보다 작은 경우 p = c
     elif a < c:
-        count +=1
-        binarySearch(c,l,a)
+        binarySearch(c,l,a, count+1)
     elif c == a:
         print(count)
         
-binarySearch(400,1,300)
-
-
-
-
-# T = int(input())
-# for t in range(T):
-#     P, A, B = map(int,input())
-#     count_A = 0
-#     count_B = 0
-#     l = 1
-#     c = int((l+P)/2)
+#binarySearch(400,1,50,0)
+T = int(input())
+for t in range(T):
+    P, A, B = map(int,input().split())
+    a_res = binarySearch(P, 1, A, 0)
+    b_res = binarySearch(P, 1, B, 0)
+    print(a_res)
+    # if a_res > b_res:
+    #     print('A')
+    # elif a_res < b_res:
+    #     print('B')
+    # else:
+    #     print(0)
