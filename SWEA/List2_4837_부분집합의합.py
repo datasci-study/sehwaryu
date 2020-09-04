@@ -8,10 +8,10 @@
 # combination 라이브러리 사용
 from itertools import combinations
 
-lst = [1,2,3]
+lst = [1,2,3,4,5,6,7,8,9,10,11,12]
 
 # 함수 생성
-def createCombination(a):
+def createCombination(a, n, k):
     sets = []
     # 우선 리스트에 대한 부분집합 모두 생성
     for i in range(0, len(a)+1):
@@ -20,16 +20,21 @@ def createCombination(a):
     # 해당 부분집합 안에 길이가 N인 부분집합만 새로운 리스트에 추가
     set_length = []
     for j in sets:
-        if len(j) == 3:
+        if len(j) == n:
             set_length.append(j)
-    sum(set_length)
-    
-createCombination(lst)
-#T = int(input())
-# for i in range(T):
-#     #lst = [1,2,3,4,5,6,7,8,9,10,11,12]
-#     result = []
-#     #N, K = map(int,input().split())
-#     print(result)
+    # 해당 길이의 부분집합 중 합이 K인 부분집합만 새로운 리스트에 추가
+    set_result = []
+    for s in set_length:
+        if sum(s) == k:
+            set_result.append(s)
+    return(len(set_result))    
+
+
+T = int(input())
+for t in range(T):
+    result = []
+    N, K = map(int,input().split())
+    print("#{} ".format(t+1), end='')
+    print(createCombination(lst, N, K))
 
 
