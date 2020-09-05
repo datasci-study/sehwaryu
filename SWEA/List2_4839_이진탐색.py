@@ -9,22 +9,22 @@
 # p = 전체 쪽수, l = 첫째 쪽수, a = 찾아야하는 쪽수, count = 이진탐색 실시 횟수
 def binarySearch(p, l, a, count):
     c = int((l+p)/2)
+    if a == c:
+        print(count)
     # a가 중간값보다 큰 경우 l = c
-    if a > c:
+    elif a > c:
         binarySearch(p, c, a, count+1)
     # a가 중간값보다 작은 경우 p = c
     elif a < c:
-        binarySearch(c,l,a, count+1)
-    elif c == a:
-        print(count)
-        
-#binarySearch(400,1,50,0)
+        binarySearch(c, l, a, count+1)
+
+# binarySearch(1000,1,578,1) 
 T = int(input())
 for t in range(T):
     P, A, B = map(int,input().split())
-    a_res = binarySearch(P, 1, A, 0)
-    b_res = binarySearch(P, 1, B, 0)
-    print(a_res)
+    if binarySearch(P, 1, A, 0) == 1 :
+        print('a')
+    #binarySearch(P, 1, B, 0)
     # if a_res > b_res:
     #     print('A')
     # elif a_res < b_res:
