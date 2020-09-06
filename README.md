@@ -4,10 +4,23 @@
 
 
 
-### 스터디 목표
+### Study Objective
 
-1. 알고리즘 공부 (파이썬)
-   - 주마다 문제 네 문제씩 풀고 스터디 시간에 공유 (월요일 자정까지 깃에 업로드)
-   - +여유 시간 있으면 백준/프로그래머스
-2. 머신러닝 공부 
-   - 인프런 머신러닝 강의 + 데이터 실습
+1. Algorithm practice (python)
+
+   - Four questions a week from SWEA (upload on Git by Monday night)
+
+   - Baekjoon / Programmers if possible
+
+2. Machine learning study 
+
+   - Inflearn ML lecture + practice
+
+
+
+| Date | Content                                                      | Practice                                                     |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 9/1  | Section 1 - Numpy & Pandas <br />Section 2 <br />- Scikit Learn K-Fold, stratified K-fold Cross Validation<br />- Data Encoding, preprocessing |                                                              |
+| 9/8  | Section 3 - Evaluation <br />- Classification and accuracy evaluation <br />- Confusion matrix, Precision, Recall (Tradeoff of precision and recall)<br />- F1 Score, ROC-AUC | [Weather prediction - Classification](https://github.com/datasci-study/sehwaryu/blob/master/Machine_learning/W3_weather_prediction.ipynb) |
+|      |                                                              |                                                              |
+
