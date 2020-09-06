@@ -10,10 +10,10 @@
 def binarySearch(p, l, a, count):
     c = int((l+p)/2)
     # 최종 변수
-    result = 0
+    result = count
     if a == c:
-        result = count
-        print (int(result))
+        print(int(result))
+        return(int(result))
     # a가 중간값보다 큰 경우 l = c
     elif a > c:
         binarySearch(p, c, a, count+1)
@@ -22,15 +22,17 @@ def binarySearch(p, l, a, count):
         binarySearch(c, l, a, count+1)
     else:
         return -1
+    return count
 
 T = int(input())
 for t in range(T):
     P, A, B = map(int,input().split())
-    binarySearch(P, 1, A, 0)
-    binarySearch(P, 1, B, 0)
-    # if a_res > b_res:
-    #     print('A')
-    # elif a_res < b_res:
-    #     print('B')
-    # else:
-    #     print(0)
+    a_res = binarySearch(P, 1, A, 0)
+    b_res = binarySearch(P, 1, B, 0)
+    print(a_res,b_res)
+    if a_res > b_res:
+        print('A')
+    elif a_res < b_res:
+        print('B')
+    else:
+        print(0)
