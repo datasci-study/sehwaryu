@@ -23,7 +23,6 @@ def binarySearch(p, l, a, count):
     else:
         return -1
 
-# binarySearch(1000,1,578,1) 
 T = int(input())
 for t in range(T):
     P, A, B = map(int,input().split())
