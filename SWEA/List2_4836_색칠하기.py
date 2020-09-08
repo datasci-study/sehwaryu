@@ -16,6 +16,7 @@ for t in range(T):
     for i in range(N):
         # 좌표 parsing
         x1, y1, x2, y2, color = map(int,input().split())
+        # x1, x2와 y1, y2 사이의 좌표 값들 각각 red, blue 리스트에 추가해주기
         for x in range(x1, x2+1):
             for y in range(y1, y2+1):
                 if color == 1:
