@@ -11,8 +11,9 @@ def binarySearch(p, l, a, count):
     c = int((l+p)/2)
     # 최종 변수
     result = count
+    # a가 c와 값이 같아졌을 경우 함수를 끝낸다
     if a == c:
-        print(int(result))
+        # print(int(result))
         return(int(result))
     # a가 중간값보다 큰 경우 l = c
     elif a > c:
