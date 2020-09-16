@@ -26,19 +26,20 @@ for i in range(T):
                                                     # 2. 세로 탐색 같이 진행
         lst_v = list(map(str, lst_h))               # N번 리스트 입력 값을 받고            
         vertical_list.append(lst_v)                 # 새로운 변수에 해당 입력 값을 저장해준 후 for문이 끝난 후 -- 세로 탐색 여기까지
+        
         for m in range(len(lst_h)):
             result_h.append(lst_h[m:m+M])           # 입력받는 리스트 범위 내에서 M의 길이만큼의 배열을 result_h에 저장한다
         for r in result_h:
             if len(r) == M:                         # result_h에서 길이가 M이고
                 if r == r[::-1]:                    # 뒤집었을 때 원래의 값과 같은 값에 한해서
                     final_res.append(r)             # horizontal_res에 저장해준다.
-    temp = [list(x) for x in zip(*vertical_list)]   # # 전치 시켜준다 (행과 열을 반전 시켜준다) -- 세로 탐색 다시 시작
+    
+    temp = [list(x) for x in zip(*vertical_list)]   # 전치 시켜준다 (행과 열을 반전 시켜준다) -- 세로 탐색 다시 시작
     transposed = []                             
     for j in temp:
         transposed.append(''.join(j))               # 전치 시켜준 각 행을 join 시켜서 transposed 리스트에 저장
 
     temp_result = []
-    vertical_res = []
     for t in transposed:                            # transposed 리스트 내의 element 값을 탐색하며 
         for m2 in range(len(t)):
             temp_result.append(t[m2:m2+M])          # temp_result에 저장해준다
