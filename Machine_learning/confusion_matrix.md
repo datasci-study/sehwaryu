@@ -42,10 +42,10 @@ Confusion matrix는 아래와 같은 형식을 따른다:
 
 
 
-|                         | Negative (우산을 안 챙긴다) | Positive (우산을 챙긴다) |
-| ----------------------- | --------------------------- | ------------------------ |
-| **False** (비가 안온다) | True Negative               | False Positive           |
-| **True** (비가 온다)    | False Negative              | True Positive            |
+|                                         | Negative (우산을 안 챙긴다) | Positive (우산을 챙긴다) |
+| --------------------------------------- | --------------------------- | ------------------------ |
+| **Negative**  (예측과 실제 값이 불일치) | True Negative               | False Positive           |
+| **Positive** (예측과 실제 값이 일치)    | False Negative              | True Positive            |
 
 ** 헷갈리지 말아야 할 것: *True, false는 실제값과 예측값이 일치하는지 판별하는 것이다*
 
@@ -69,6 +69,8 @@ confusion_matrix(y_test, pred)
 # 133명 중, 여학생이 10명인 케이스에 대해 모두 남자라고 예측한다면 다음과 같은 결과가 나온다.
 array([[126, 0],    
     [10,0]], dtype=int64)
+# 133명을 남자라고 예측하고 실제 남자인 경우 126명 (True Negative)
+# 133명을 남자라고 예측하고 실제 남자인 경우 0 명 (True Negative)
 ```
 
 <br></br>
@@ -81,6 +83,23 @@ array([[126, 0],
   - 위의 예시에서 내가 <u>비가 온다고 예상했을 때</u>(True) <u>우산을 가지고 온</u>(Positive) 비율을 말한다.
 - <u>재현율</u>은 실제 값이 Positive인 값들 중에 예측을 Positive로 한 값의 비율
   - 위의 예시에서 <u>실제로 비가 올 때(True)</u>, <u>우산을 잘 챙기느냐(P)</u>를 평가하는 방법
+
+```python
+from sklearn.metrics import accuracy_score, precision_score
+
+print(precision_score(y_train, y_pred))
+print(recall_score(y_train, y_pred))
+```
+
+**Output**:
+
+precision_score: 0.7788
+
+- 우산을 챙겼을 때 0.77%로 정확히 예상함 (비가 옴)
+
+recall_score: 0.8872
+
+- 전체 데이터 셋에서 우산을 챙긴 비율이 88%
 
 <br></br>
 
@@ -104,5 +123,8 @@ Case 2: 스팸 메일 구분 모델에서는 정상메일(False)을 스팸으로
 
 정밀도가 늘어나면 재현율은 줄어들고, 정밀도가 줄어들면 재현율은 늘어난다. 
 
-분류하려는 업무의 특성에 따라 재현율을 늘이거나, 정밀도를 늘이게 되는데 이를 조정하기 위해서는 **임곗값(threshold)**의 정밀한 조정이 필요하다
+분류하려는 업무의 특성에 따라 재현율을 늘이거나, 정밀도를 늘이게 되는데 이를 조정하기 위해서는 임곗값(threshold)의 정밀한 조정이 필요하다
+
+- F1 Score: 이 정밀도와 재현율을 둘 다 고려한 분류 평가 수치 (정밀도와 재현율의 조화평균)
+  - 한 쪽으로 치우치지 않을 때 상대적으로 높은 값을 지님
 
